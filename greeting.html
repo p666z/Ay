@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تهنئة عيد الفطر - محمود</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #1a0a1a 0%, #2d1a2d 50%, #1a0a1a 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: white;
+        }
+        
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255,105,180,0.15) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 80% at 20% 80%, rgba(255,20,147,0.1) 0%, transparent 60%),
+                radial-gradient(ellipse 50% 50% at 80% 20%, rgba(255,182,193,0.12) 0%, transparent 50%),
+                linear-gradient(to bottom, #1a0a1a, #2d1a2d);
+        }
+        
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+            50% { transform: translateY(-30px) translateX(15px); opacity: 0.8; }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px #ff69b4, 0 0 40px #ff1493; }
+            50% { box-shadow: 0 0 40px #ff69b4, 0 0 80px #ff1493, 0 0 120px #ff69b4; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Intro Scene */
+        .intro-scene {
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Eid Icon */
+        .eid-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        /* Type Badge */
+        .type-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,105,180,0.3);
+            background: rgba(255,105,180,0.1);
+            color: #ff69b4;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        /* Main Title */
+        .main-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 0 60px rgba(255,105,180,0.5);
+            background: linear-gradient(90deg, #ff69b4, #ff1493, #ffb6c1, #ff69b4);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s linear infinite;
+        }
+        
+        /* Sender Name */
+        .sender-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 30px;
+        }
+        
+        .sender-info .line {
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255,105,180,0.5), transparent);
+        }
+        
+        .sender-info .name {
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+        }
+        
+        /* Message Container */
+        .message-container {
+            background: linear-gradient(145deg, rgba(255,105,180,0.05), transparent);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 40px;
+            margin: 30px 0;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        
+        .message-container::before {
+            content: '"';
+            font-size: 100px;
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            color: rgba(255,105,180,0.2);
+            font-family: serif;
+        }
+        
+        .message-text {
+            font-size: 1.3rem;
+            line-height: 2;
+            color: rgba(255,255,255,0.85);
+            white-space: pre-line;
+        }
+        
+        /* Album */
+        .album-container {
+            width: 100%;
+            margin: 30px 0;
+        }
+        
+        .album-title {
+            text-align: center;
+            font-size: 14px;
+            letter-spacing: 3px;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 20px;
+        }
+        
+        .album-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(255,105,180,0.5), transparent);
+            margin: 10px auto;
+        }
+        
+        .photos-grid {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .photo-card {
+            width: 200px;
+            height: 250px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 2px solid rgba(255,105,180,0.3);
+            animation: glow 3s ease-in-out infinite;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .photo-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Music Player */
+        .music-container {
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .music-icon {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,105,180,0.3) 0%, transparent 70%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            position: relative;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .music-icon::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 2px solid rgba(255,105,180,0.3);
+            animation: ripple 2s ease-out infinite;
+        }
+        
+        @keyframes ripple {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        
+        .music-icon-inner {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+        }
+        
+        .music-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 40px rgba(255,105,180,0.3);
+        }
+        
+        .music-subtitle {
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 20px;
+        }
+        
+        audio {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+        
+        /* Navigation Buttons */
+        .nav-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 16px;
+            margin: 10px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255,105,180,0.2);
+            border-color: rgba(255,105,180,0.5);
+        }
+        
+        /* Sections */
+        .section {
+            display: none;
+            width: 100%;
+        }
+        
+        .section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            .main-title { font-size: 2rem; }
+            .message-container { padding: 20px; }
+            .photo-card { width: 150px; height: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <!-- Section 1: Intro -->
+        <div class="section active" id="intro">
+            <div class="intro-scene">
+                <div class="eid-icon">🌙</div>
+                <div class="type-badge">عيد الفطر</div>
+                <h1 class="main-title">سعيدة الحظ</h1>
+                <div class="sender-info">
+                    <div class="line"></div>
+                    <p>من <span class="name">محمود</span></p>
+                    <div class="line"></div>
+                </div>
+                <button class="nav-btn" onclick="showSection('message')">
+                    اقرأ الرسالة ↓
+                </button>
+            </div>
+        </div>
+        
+        <!-- Section 2: Message -->
+        <div class="section" id="message">
+            <div class="message-container">
+                <p class="message-text">العيد لا الجمعة ولا السبت
+العيد شوفتك ياگلبي ♥️</p>
+            </div>
+            <p style="text-align: center; color: rgba(255,255,255,0.4);">— محمود</p>
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="nav-btn" onclick="showSection('photos')">
+                    شاهد الصور ↓
+                </button>
+            </div>
+        </div>
+        
+        <!-- Section 3: Photos -->
+        <div class="section" id="photos">
+            <div class="album-container">
+                <div class="album-title">ألبوم الذكريات</div>
+                <div class="photos-grid">
+                    <div class="photo-card">
+                        <img src="media/image1.jpeg" alt="صورة 1">
+                    </div>
+                    <div class="photo-card">
+                        <img src="media/image2.jpeg" alt="صورة 2">
+                    </div>
+                    <div class="photo-card">
+                        <img src="media/image3.jpeg" alt="صورة 3">
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="nav-btn" onclick="showSection('music')">
+                    استمع للموسيقى ↓
+                </button>
+            </div>
+        </div>
+        
+        <!-- Section 4: Music -->
+        <div class="section" id="music">
+            <div class="music-container">
+                <div class="music-icon">
+                    <div class="music-icon-inner">🎵</div>
+                </div>
+                <h2 class="music-title">موسيقى مختارة لك</h2>
+                <p class="music-subtitle">اختارها <span style="color: rgba(255,255,255,0.6);">محمود</span> خصيصاً لهذه المناسبة</p>
+                <audio controls autoplay>
+                    <source src="media/videoplayback.mp3" type="audio/mpeg">
+                    متصفحك لا يدعم تشغيل الصوت
+                </audio>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        const colors = ['#ff69b4', '#ff1493', '#ffb6c1', 'rgba(255,255,255,0.6)'];
+        
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.width = (Math.random() * 8 + 2) + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
+            particlesContainer.appendChild(particle);
+        }
+        
+        // Section navigation
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // Auto-play intro
+        setTimeout(() => {
+            // Optional: auto-advance to message after 8 seconds
+            // showSection('message');
+        }, 8000);
+    </script>
+</body>
+</html>
